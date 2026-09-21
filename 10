@@ -1,0 +1,22 @@
+ sum += arr[right];
+
+            while (sum > target) {
+                sum -= arr[left++];
+            }
+
+            if (sum == target) {
+                int len = right - left + 1;
+
+                if (best[left] != 1000000) {
+                    ans = Math.min(ans, len + best[left]);
+                }
+
+                best[right + 1] = Math.min(best[right], len);
+            } else {
+                best[right + 1] = best[right];
+            }
+        }
+
+        System.out.println(ans == 1000000 ? -1 : ans);
+    }
+}
